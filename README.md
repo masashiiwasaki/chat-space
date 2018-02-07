@@ -7,9 +7,9 @@
 |password|string|null: false|
 
 ### Association
-- has many :groups,through :members
-- has many :members
-- has many :messages
+- has_many :groups,through :members
+- has_many :members
+- has_many :messages
 
 ## messagesテーブル
 
@@ -31,9 +31,9 @@
 |name|string|null: false|
 
 ### Association
-- has many :users,through :members
-- has many :members
-- has many :messages
+- has_many :users,through :members
+- has_many :members
+- has_many :messages
 
 ## membersテーブル
 
