@@ -5,10 +5,10 @@
       %h3.header__name AAAAAAAAAAAAA
       %ul.header__lists
         %li.list
-          %a{href: "/groups/new"}
+          = link_to "グループ新規作成", "/groups/new"
             %i.fa.fa-pencil-square-o.icon
         %li.list
-          %a{href: "/groups/3732/edit"}
+          = link_to "グループ編集", "/groups/3732/edit"
             %i.fa.fa-cog.icon
     .groups
       = render 'group'
@@ -21,7 +21,7 @@
           %li.member asas
           %li.member あああああああああああああ
       .right-header
-        %a.right-header__button{href: "/groups/9542/edit"}
+        = link_to "グループ編集", "/groups/9542/edit", { :class => "right-header__button" }
           Edit
     .messages.js-messages
       = render 'message'
