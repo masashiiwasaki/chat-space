@@ -1,2 +1,4 @@
 .notification
-  .notice グループを編集しました
+  .notice
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
