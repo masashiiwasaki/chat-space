@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var image = (message.image.url == null) ? "" : `<img src="${message.image}">`
+    var image = (message.image.url == null) ? "" : `<img src="${message.image.url}">`
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user-name">${message.user_name}</div>
@@ -13,6 +13,17 @@ $(function(){
                 </div>`
     return html;
   }
+
+  function pageRESET(){
+    $('.form__message').val('');
+    $('.form__submit').prop('disabled', false);
+  };
+
+  function defineFLASH(){
+    var notice = `<div class="notice">送信が完了しました。</div>`
+    return notice;
+  };
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -27,12 +38,17 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
+      var notice = defineFLASH();
       $('.messages').append(html);
+      $('.notification').append(notice);
+      $('.notice').fadeOut(8000);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight })
-      $('.form__message').val('');
+      $('.notification').val('');
+      pageRESET()
     })
     .fail(function(){
-      alert("エラーが発生しました。")
+      alert("エラーが発生しました。");
+      pageRESET()
     })
   })
 })
