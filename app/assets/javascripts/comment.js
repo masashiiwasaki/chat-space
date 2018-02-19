@@ -16,6 +16,7 @@ $(function(){
 
   function pageRESET(){
     $('.form__message').val('');
+    $('#message_image').val('');
     $('.form__submit').prop('disabled', false);
   };
 
