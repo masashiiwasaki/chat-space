@@ -86,9 +86,12 @@
       float: left;
       height: 50px;
       padding-right: 10px;
-      &__mask__image{
+      .form__mask__image{
         font-size: 20px;
         line-height: 50px;
+      }
+      .hidden{
+          display: none;
       }
     }
     &__submit{
